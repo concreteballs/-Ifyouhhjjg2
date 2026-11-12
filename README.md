@@ -143,3 +143,27 @@ Package 3 adds reserved-region metadata, future extension points, semantic and i
 
 
 The extension layer now records the three service-reserved spectral lines (clusters 1, 2 and 10) as explicit full-line mappings. A reservation covers all ten gradient cells of its cluster; partial-line reservations are not supported. This is structural database metadata, not a guard-network runtime.
+
+
+## Protected source and change guard
+
+The repository uses `report_diagnostics_manifest.md` as its owner-facing change
+protocol and `.guard/manifest.json` as the machine-readable Git-blob baseline.
+Run the guard before tests:
+
+```bash
+python tools/verify_guard.py
+python -m compileall -q spectral_core spectral_monitor tests tools
+python -m unittest discover -s tests -v
+```
+
+The guard verifies the exact set of tracked files and their approved Git blob
+SHA-1 values. A changed, missing, renamed, or newly tracked file fails
+validation until its change has been reviewed, tested, and explicitly included
+in a new baseline. The baseline is not refreshed automatically.
+
+The guard is an integrity/regression control, not a cryptographic signature,
+access-control system, or proof that a reviewed change is correct. Review of
+baseline updates and repository permissions remain necessary. The manifest
+cannot hash itself; changes to `.guard/manifest.json` therefore require
+explicit human review alongside the code diff.
