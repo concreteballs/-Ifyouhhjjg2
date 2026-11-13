@@ -78,7 +78,7 @@
     "research/adaptive_engine/stability.py": "62b47ede329eddc02b0a10f6c3f5ffe04f3553f6",
     "research/adaptive_engine/registry.py": "bfbc5bea22bb56a764a1bacdbb7f9ee1018e6625",
     "research/adaptive_engine/engine.py": "29efff0267858e3eaf2ef4650e01fb2f5fe5e8f7",
-    "research/adaptive_engine/__init__.py": "fe86565c0aefd8eea08a978bc9a6f6a93870353f",
+    "research/adaptive_engine/__init__.py": "59bf9d21f0e0f747f81785679ccc704af3f4c8ee",
     "tests/test_adaptive_engine.py": "747a8e1857fab8bb320e25d3cff6ccf8da12b85f",
     "research/adaptive_engine/README.md": "a0c7773ee68d934263dd9b95dc7ba9f1b00daabc",
     "research/adaptive_engine/tik_adapter.py": "d9b844cf14596375296026f426c1bf5bce223ddf",
