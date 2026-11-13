@@ -166,13 +166,13 @@ This specification does not model membrane rupture, black-hole formation, a sing
 
 It introduces no new physical time coordinate. Calendar time remains the ordinary time coordinate in the knowledge architecture. Any relationship between event density and physical clock rates requires a separate forward model.
 
-## 10. Decision gate before implementation
+## 10. Approved initial choices and implementation status
 
-The following choices must be confirmed before changing calculator code:
+The user approved the following initial choices on 13 November 2026:
 
-1. Does one active cell represent a fixed effective physical volume \(v_c\), or is cell volume itself variable?
-2. Is observation volume \(V\) a laboratory region, cosmological region, or abstract normalization volume? First implementation should use a declared finite region.
-3. Does \(p\) mean probability that a candidate event passes the membrane, or average fraction of active cells? These interpretations must not be mixed.
-4. Is \(\varepsilon_T\) energy per transmitted event, before or after any later partition into process/return channels?
+1. Each active cell has a fixed effective physical volume \(v_c\).
+2. The first implementation uses an explicitly declared finite observation volume \(V\), not an implicit cosmological or abstract volume.
+3. \(p\) is the probability that a candidate event passes through the membrane.
+4. \(\varepsilon_T\) is the energy per transmitted event, before any later partition into physical-process and return channels.
 
-Until these choices are fixed, this is a review artifact and the calculator remains unchanged.
+The isolated calculator implementation now uses these choices. The previous bare `grouped_cell_count` API has been replaced rather than silently reinterpreted. Its replacement takes `observation_volume_m3`, `active_cell_count`, and `cell_volume_m3` explicitly. The model remains exploratory; this approval does not validate the physical hypothesis or authorize merging into `main`.
