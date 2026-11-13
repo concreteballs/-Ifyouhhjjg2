@@ -33,3 +33,16 @@ The target is practical stability and useful behavior under changed inputs. A fi
 - Learned capability is separate from execution permission. Risk-based approval, authorized scope, sandboxing and physical interlocks are checked by a fail-closed policy gate.
 
 See [PROCESS_TRANSFER_AND_SAFETY.md](PROCESS_TRANSFER_AND_SAFETY.md).
+
+## Applicability-aware TIK research pipeline
+
+`fit_tik_research_dataset` connects process profiles directly to paired TIK fitting:
+1. Classify every observation against a model-family reference profile.
+2. Fit return-flow and response parameters using only observations assigned `FIT`.
+3. Keep `PARTIAL_TRANSFER` observations available as transfer material, without treating them as fit or direct validation data.
+4. Evaluate the frozen selected fit against independent `HOLDOUT` observations without refitting.
+5. Return predictions, per-observation errors, RMSE and weighted RMSE, plus all role assignments and unresolved IDs.
+
+Fit and holdout groups are explicitly supplied. Provenance shared with any training observation prevents holdout promotion. A dataset with fewer than two eligible fit observations is rejected rather than silently broadening the training set.
+
+See [TIK_RESEARCH_PIPELINE.md](TIK_RESEARCH_PIPELINE.md).
