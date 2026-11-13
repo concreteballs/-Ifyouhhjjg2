@@ -29,7 +29,7 @@ The fitter minimizes uncertainty-weighted chi-squared and optionally penalizes m
 
 predict_from_return_flow_contrast() accepts a difference in returned power density between two clock locations (W/m³), a positive reference power density (W/m³), and fitted coefficient k and exponent α. It forms dimensionless x = ΔΠ_return / Π_reference and predicts y = k sign(x)|x|ᵅ.
 
-The benchmark papers do not report ΔΠ_return, so a TIK-flow fit is intentionally not fabricated. The next missing model input is a rule that computes return-flow contrast at each clock location from TIK-0 cell geometry, transmission probability, event energy and return parameters.
+The helper predict_from_return_flow_states() now runs the existing return-flow model for two clock locations, subtracts their returned power densities, and passes that contrast into the redshift mapping. This is the explicit TIK-0 → return-flow → redshift calculation path. The benchmark papers do not report the local TIK inputs, so a TIK-flow fit is intentionally not fabricated. The remaining missing input is a justified way to assign cell geometry, transmission probability, event energy and return parameters at each experimental clock location.
 
 ## Provenance
 
