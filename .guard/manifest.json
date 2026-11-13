@@ -90,9 +90,9 @@
     "research/adaptive_engine/raw_parameter_search.py": "44a248ef2420c70fac747a9bf10a88c9a1895677",
     "tests/test_tik_raw_parameter_search.py": "92174d2e7ea064561029369f2d61ae394fe06510",
     "research/adaptive_engine/RAW_TIK_SEARCH.md": "9daf3f3cd91b2e4745cf5441cc2dad48e54416a4",
-    "research/adaptive_engine/transfer_engine.py": "af818eea1e7a7328678fd091667eb340c9bd4573",
+    "research/adaptive_engine/transfer_engine.py": "013385351af4d1cd8b56487339e68526aa089949",
     "research/adaptive_engine/safety_gate.py": "2d08181915c1e1bb71e941c0d5ada3605dbc6615",
-    "tests/test_process_transfer_and_safety.py": "1c54fd5055a4ff7fc437fc856f9584bb49cb458d",
+    "tests/test_process_transfer_and_safety.py": "fb17357ef1ef787eefbfec7915070848bb8332bb",
     "research/adaptive_engine/PROCESS_TRANSFER_AND_SAFETY.md": "063150e3f608da90b6269f8ff0d380f7f0dbf18c"
   }
 }
