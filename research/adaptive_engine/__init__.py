@@ -9,7 +9,7 @@ from .tik_adapter import TIKAdaptiveCandidate, TIKAdaptiveResult, TIKPairObserva
 from .dynamic_adapter import DynamicTIKCandidate, DynamicTIKResult, TIKTimeObservation, fit_dynamic_tik_series
 from .raw_parameter_search import TIKRawParameterGrid, TIKRawSearchCandidate, TIKRawSearchResult, fit_tik_raw_parameters
 from .tik_research_pipeline import (TIKResearchObservation, TIKHoldoutPrediction, TIKHoldoutReport, TIKResearchResult, fit_tik_research_dataset)
-from .tik_transfer_search import (TIKTransferRule, TIKComponentHint, TIKTransferCandidate,
+from .transfer_feedback import (TransferCandidateFeedback, TransferFeedbackReport, TransferFeedbackRegistry, build_transfer_feedback)\nfrom .tik_transfer_search import (TIKTransferRule, TIKComponentHint, TIKTransferCandidate,
     TIKTransferEvaluation, TIKTransferSearchResult, propose_tik_component_hints,
     combine_tik_transfer_hints, search_tik_transfer_candidates)
 
@@ -23,7 +23,7 @@ __all__ = [
     "TIKRawParameterGrid", "TIKRawSearchCandidate", "TIKRawSearchResult",
     "fit_tik_raw_parameters", "TIKResearchObservation", "TIKHoldoutPrediction",
     "TIKHoldoutReport", "TIKResearchResult", "fit_tik_research_dataset",
-    "TIKTransferRule", "TIKComponentHint", "TIKTransferCandidate",
+    "TransferCandidateFeedback", "TransferFeedbackReport", "TransferFeedbackRegistry", "build_transfer_feedback",\n    "TIKTransferRule", "TIKComponentHint", "TIKTransferCandidate",
     "TIKTransferEvaluation", "TIKTransferSearchResult",
     "propose_tik_component_hints", "combine_tik_transfer_hints",
     "search_tik_transfer_candidates",
