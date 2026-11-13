@@ -46,7 +46,7 @@
     "tools/verify_guard.py": "f72d21e22b60c4e1630b942173608d5c5539ad37",
     "tests/test_guard_validation.py": "51d6723ad1376418a2926bc5668eaf9f9a638c45",
     "docs/ARCHITECTURE_RESEARCH_PRINCIPLES.md": "41fd85899b4a866845a82f34d2984b478da7c2ba",
-    "research/tik0/__init__.py": "d86a99c36aff4bb6d85fbc3d2ca11d53d9e4457c",
+    "research/tik0/__init__.py": "7c457fac9ba259ef4d3dcbed33946ff84d1d89cf",
     "research/tik0/model.py": "d0b9c10a431337e4e20b848c61eb84326654ffad",
     "research/tik0/README.md": "3cf648535a0597c6439d6d387ce8e1724c474c31",
     "tests/test_tik0.py": "372c8fe9ce624942e6928c234ffb12adab368aaa",
