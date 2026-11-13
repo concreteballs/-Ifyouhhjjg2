@@ -46,10 +46,10 @@
     "tools/verify_guard.py": "f72d21e22b60c4e1630b942173608d5c5539ad37",
     "tests/test_guard_validation.py": "51d6723ad1376418a2926bc5668eaf9f9a638c45",
     "docs/ARCHITECTURE_RESEARCH_PRINCIPLES.md": "41fd85899b4a866845a82f34d2984b478da7c2ba",
-    "research/tik0/__init__.py": "023eb38d43cf433ec73014a86829027eb96d5ff8",
-    "research/tik0/model.py": "afe9c4224f1e80e3eaf3c285ddffe17239a67499",
-    "research/tik0/README.md": "d08c6ae18ac1848751bdcf0c203dcdb0842688c5",
-    "tests/test_tik0.py": "ee30f3c2e36237ab76c5678777f16fac7aad53cc",
+    "research/tik0/__init__.py": "2be9aff29140a411b3af7743aadf849582740196",
+    "research/tik0/model.py": "d0b9c10a431337e4e20b848c61eb84326654ffad",
+    "research/tik0/README.md": "3cf648535a0597c6439d6d387ce8e1724c474c31",
+    "tests/test_tik0.py": "a087438709ef43f15c11e3dee53b8e183178b97e",
     "research/tik0/MATHEMATICAL_SPECIFICATION.md": "def2e186595c6f8e9b0cd3caf25068cc3e50d3a6"
   }
 }
