@@ -30,7 +30,7 @@ def _predict(name: str, x: float, params: dict[str, float]) -> float:
 
 def fit_redshift_models(observations: Iterable[RedshiftObservation], *,
     input_scale: float = 1e-18, output_scale: float = 1e-18,
-    coefficient_grid: tuple[float, ...] = (0.5, 0.75, 1.0, 1.05, 1.1, 1.25, 1.5),
+    coefficient_grid: tuple[float, ...] = (0.5, 0.75, 1.0, 1.05, 1.064, 1.1, 1.25, 1.5),
     exponent_grid: tuple[float, ...] = (0.75, 0.9, 1.0, 1.1, 1.25),
     saturation_rate_grid: tuple[float, ...] = (0.0001, 0.0002, 0.00022, 0.00025, 0.0005),
     saturation_cap_grid: tuple[float, ...] = (5000.0, 5130.0, 5500.0, 10000.0),
