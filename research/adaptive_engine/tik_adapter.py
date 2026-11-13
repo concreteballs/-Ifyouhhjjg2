@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from decimal import Decimal
 from math import isfinite
 from typing import Iterable
 
@@ -41,8 +42,8 @@ def _paired_contrast(item: TIKPairObservation, model: str,
                      coefficient: float, exponent: float) -> float:
     a = calculate_local_state(
         item.state_a, return_model_name=model,
-        return_coefficient=__import__("decimal").Decimal(str(coefficient)),
-        return_exponent=__import__("decimal").Decimal(str(exponent)),
+        return_coefficient=Decimal(str(coefficient)),
+        return_exponent=Decimal(str(exponent)),
     )
     b = calculate_local_state(
         item.state_b, return_model_name=model,
