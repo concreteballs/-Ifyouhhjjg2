@@ -1,6 +1,7 @@
 """Candidate mappings from a driver variable to fractional clock shift."""
 from __future__ import annotations
 from dataclasses import dataclass
+from decimal import Decimal
 from math import isfinite
 from research.return_flow.model import ReturnFlowInputs, calculate_return_flow
 
@@ -76,9 +77,9 @@ def predict_from_return_flow_states(
     """
     flow_a = calculate_return_flow(
         location_a, model_name=return_model_name,
-        coefficient=__import__("decimal").Decimal(str(return_coefficient)),
-        exponent=__import__("decimal").Decimal(str(return_exponent)),
-        maximum_fraction=__import__("decimal").Decimal(str(return_maximum_fraction)),
+        coefficient=Decimal(str(return_coefficient)),
+        exponent=Decimal(str(return_exponent)),
+        maximum_fraction=Decimal(str(return_maximum_fraction)),
     )
     flow_b = calculate_return_flow(
         location_b, model_name=return_model_name,
