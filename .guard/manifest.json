@@ -74,7 +74,7 @@
     "research/redshift/TIK_PARAMETER_SWEEP_REPORT.md": "f1f9aa4ed7974bbd047e74755fc468ed9688a859",
     "research/adaptive_engine/entities.py": "ab023ac765268c8b2204c2eee0a22d6c8e34772b",
     "research/adaptive_engine/formulas.py": "76ed2dccf52be0d9455711e7b33a9b01e1fe0590",
-    "research/adaptive_engine/optimizer.py": "8e5bdddb3e44f310a74c0a1940e841b5a814ba9b",
+    "research/adaptive_engine/optimizer.py": "d129a25569577180b1185a69c7f060495e9fb64f",
     "research/adaptive_engine/stability.py": "62b47ede329eddc02b0a10f6c3f5ffe04f3553f6",
     "research/adaptive_engine/registry.py": "bfbc5bea22bb56a764a1bacdbb7f9ee1018e6625",
     "research/adaptive_engine/engine.py": "29efff0267858e3eaf2ef4650e01fb2f5fe5e8f7",
