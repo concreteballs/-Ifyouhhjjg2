@@ -78,11 +78,14 @@
     "research/adaptive_engine/stability.py": "62b47ede329eddc02b0a10f6c3f5ffe04f3553f6",
     "research/adaptive_engine/registry.py": "bfbc5bea22bb56a764a1bacdbb7f9ee1018e6625",
     "research/adaptive_engine/engine.py": "29efff0267858e3eaf2ef4650e01fb2f5fe5e8f7",
-    "research/adaptive_engine/__init__.py": "c7d6d74e88eb2f2a5f1fcbe43a73e223a846329b",
+    "research/adaptive_engine/__init__.py": "487ded55a01da6a730269ac751b1222ff9051293",
     "tests/test_adaptive_engine.py": "747a8e1857fab8bb320e25d3cff6ccf8da12b85f",
-    "research/adaptive_engine/README.md": "03bb2587a43c085c98e1023c307bab23d1a43709",
+    "research/adaptive_engine/README.md": "b7ba895cf9befb41daa0ef7b2e70d3ed47124d8e",
     "research/adaptive_engine/tik_adapter.py": "d9b844cf14596375296026f426c1bf5bce223ddf",
     "research/adaptive_engine/TIK_ADAPTER.md": "4e371d5f3dd7201b3deb330d598b9236546d9f3c",
-    "tests/test_tik_adaptive_adapter.py": "2eeb788996aa3de6199f43a92a71fce4f1368bfc"
+    "tests/test_tik_adaptive_adapter.py": "2eeb788996aa3de6199f43a92a71fce4f1368bfc",
+    "research/adaptive_engine/dynamic_adapter.py": "31c9238dbd3173b743f7d40e83e8dae57f005f9f",
+    "research/adaptive_engine/DYNAMIC_TIK.md": "e70799aab1440e1647971de482d48e1aa70510f6",
+    "tests/test_dynamic_tik_adapter.py": "9cbe0bfa4de57d45ac3091a5bc6d4b72f3899441"
   }
 }
