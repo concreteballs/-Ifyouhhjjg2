@@ -2,6 +2,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from math import isfinite
+from research.return_flow.model import ReturnFlowInputs, calculate_return_flow
 
 @dataclass(frozen=True)
 class RedshiftObservation:
@@ -54,3 +55,45 @@ def predict_from_return_flow_contrast(delta_return_power_density_w_m3: float, re
     x = delta_return_power_density_w_m3 / reference_power_density_w_m3
     shift = coefficient * (1.0 if x >= 0 else -1.0) * (abs(x) ** exponent)
     return RedshiftPrediction(shift, "return_flow_contrast", "power_law_return_flow")
+
+def predict_from_return_flow_states(
+    location_a: ReturnFlowInputs,
+    location_b: ReturnFlowInputs,
+    *,
+    reference_power_density_w_m3: float,
+    return_model_name: str = "linear",
+    return_coefficient: float = 1.0,
+    return_exponent: float = 1.0,
+    return_maximum_fraction: float = 1.0,
+    redshift_coefficient: float = 1.0,
+    redshift_exponent: float = 1.0,
+) -> RedshiftPrediction:
+    """Run TIK return-flow calculations at two locations and map their contrast.
+
+    This is the explicit TIK-0 → return-flow → redshift calculation path.
+    Location-specific ReturnFlowInputs must be supplied by the caller; the
+    bundled experimental benchmarks do not contain these TIK state variables.
+    """
+    flow_a = calculate_return_flow(
+        location_a, model_name=return_model_name,
+        coefficient=__import__("decimal").Decimal(str(return_coefficient)),
+        exponent=__import__("decimal").Decimal(str(return_exponent)),
+        maximum_fraction=__import__("decimal").Decimal(str(return_maximum_fraction)),
+    )
+    flow_b = calculate_return_flow(
+        location_b, model_name=return_model_name,
+        coefficient=__import__("decimal").Decimal(str(return_coefficient)),
+        exponent=__import__("decimal").Decimal(str(return_exponent)),
+        maximum_fraction=__import__("decimal").Decimal(str(return_maximum_fraction)),
+    )
+    delta = float(flow_a.returned_power_density_w_m3 - flow_b.returned_power_density_w_m3)
+    prediction = predict_from_return_flow_contrast(
+        delta, reference_power_density_w_m3,
+        coefficient=redshift_coefficient, exponent=redshift_exponent,
+    )
+    return RedshiftPrediction(
+        prediction.fractional_shift,
+        prediction.input_kind,
+        "tik0_return_flow_" + return_model_name,
+        prediction.parameter_status,
+    )
