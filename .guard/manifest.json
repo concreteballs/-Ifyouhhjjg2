@@ -45,6 +45,10 @@
     "tests/test_sqlite_recovery.py": "e3f696c616b7e3cff95c73c0d5f01780dfe56bf1",
     "tools/verify_guard.py": "f72d21e22b60c4e1630b942173608d5c5539ad37",
     "tests/test_guard_validation.py": "51d6723ad1376418a2926bc5668eaf9f9a638c45",
-    "docs/ARCHITECTURE_RESEARCH_PRINCIPLES.md": "41fd85899b4a866845a82f34d2984b478da7c2ba"
+    "docs/ARCHITECTURE_RESEARCH_PRINCIPLES.md": "41fd85899b4a866845a82f34d2984b478da7c2ba",
+    "research/tik0/__init__.py": "023eb38d43cf433ec73014a86829027eb96d5ff8",
+    "research/tik0/model.py": "afe9c4224f1e80e3eaf3c285ddffe17239a67499",
+    "research/tik0/README.md": "d08c6ae18ac1848751bdcf0c203dcdb0842688c5",
+    "tests/test_tik0.py": "ee30f3c2e36237ab76c5678777f16fac7aad53cc"
   }
 }
