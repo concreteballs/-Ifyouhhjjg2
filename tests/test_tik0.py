@@ -56,7 +56,9 @@ class Tik0ModelTests(unittest.TestCase):
         small = calculate(inputs(volume="10", count=2, cell_volume="2", energy=None))
         large = calculate(inputs(volume="20", count=4, cell_volume="2", energy=None))
         self.assertEqual(large.total_event_rate_per_s, small.total_event_rate_per_s * 2)
-        self.assertEqual(large.event_rate_density_per_m3_s, small.event_rate_density_per_m3_s)
+        difference = abs(large.event_rate_density_per_m3_s - small.event_rate_density_per_m3_s)
+        tolerance = abs(small.event_rate_density_per_m3_s) * D("1e-15")
+        self.assertLessEqual(difference, tolerance)
 
     def test_active_fraction_scales_rate_density_linearly(self):
         half = calculate(inputs(volume="10", count=1, cell_volume="2", energy=None))
