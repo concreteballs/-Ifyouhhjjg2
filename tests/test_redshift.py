@@ -1,7 +1,9 @@
 import unittest
+from decimal import Decimal
+from research.return_flow import ReturnFlowInputs
 from research.redshift import (
     PUBLISHED_BENCHMARKS, RedshiftObservation, fit_redshift_models,
-    predict_from_reference_shift, predict_from_return_flow_contrast,
+    predict_from_reference_shift, predict_from_return_flow_contrast, predict_from_return_flow_states,
 )
 
 class RedshiftModelTests(unittest.TestCase):
@@ -50,6 +52,18 @@ class RedshiftModelTests(unittest.TestCase):
             fit_redshift_models([RedshiftObservation("a", 1.0, 1.0, 0.0, "x"), RedshiftObservation("b", 2.0, 2.0, 1.0, "x")])
         with self.assertRaises(ValueError):
             fit_redshift_models([RedshiftObservation("a", 1.0, 1.0, 1.0, "potential"), RedshiftObservation("b", 2.0, 2.0, 1.0, "return_flow")])
+
+
+    def test_integrated_tik_return_flow_between_two_locations(self):
+        location_a = ReturnFlowInputs(Decimal("10"), Decimal("0.5"), Decimal("0.8"), Decimal("0.5"), Decimal("10"))
+        location_b = ReturnFlowInputs(Decimal("10"), Decimal("0.5"), Decimal("0.4"), Decimal("0.5"), Decimal("10"))
+        result = predict_from_return_flow_states(
+            location_a, location_b, reference_power_density_w_m3=10.0,
+            return_model_name="linear", return_coefficient=1.0,
+            redshift_coefficient=2.0, redshift_exponent=1.0,
+        )
+        self.assertAlmostEqual(result.fractional_shift, 0.2)
+        self.assertEqual(result.model_name, "tik0_return_flow_linear")
 
     def test_nonpositive_reference_density_is_rejected(self):
         with self.assertRaises(ValueError):
