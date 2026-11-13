@@ -3,7 +3,7 @@
   "baseline_from_commit": "37ed31b6865fc1ea42babd9a86e773ac3ec4c59a",
   "hash_algorithm": "git-blob-sha1",
   "files": {
-    ".github/workflows/spectral-core-tests.yml": "b18ceabd1ed3bf8d29c1806a110ad18dc48bb0f0",
+    ".github/workflows/spectral-core-tests.yml": "861d3fe6fcd9846326dfe5c503e1e1197966d6ba",
     "LICENSE": "49eff4b53583966a7d34172f69b500b50bcf23da",
     "PROVENANCE.md": "1aa074499385426f07178a316a79f71003a84389",
     "README.md": "f551c6adf412726674e4f7f26f5b739cd7e56acb",
@@ -46,7 +46,7 @@
     "tools/verify_guard.py": "f72d21e22b60c4e1630b942173608d5c5539ad37",
     "tests/test_guard_validation.py": "51d6723ad1376418a2926bc5668eaf9f9a638c45",
     "docs/ARCHITECTURE_RESEARCH_PRINCIPLES.md": "41fd85899b4a866845a82f34d2984b478da7c2ba",
-    "research/tik0/__init__.py": "2be9aff29140a411b3af7743aadf849582740196",
+    "research/tik0/__init__.py": "d86a99c36aff4bb6d85fbc3d2ca11d53d9e4457c",
     "research/tik0/model.py": "d0b9c10a431337e4e20b848c61eb84326654ffad",
     "research/tik0/README.md": "3cf648535a0597c6439d6d387ce8e1724c474c31",
     "tests/test_tik0.py": "372c8fe9ce624942e6928c234ffb12adab368aaa",
@@ -57,13 +57,16 @@
     "research/return_flow/README.md": "ceceb1816d65eab6b9446c3c6c4a5f1368b36f57",
     "research/return_flow/MATHEMATICAL_SPECIFICATION.md": "bbdddc78c491c1c30fcd5a9f69d0a707ef69b15e",
     "tests/test_return_flow.py": "cd8c0b49bd8a31b62800e47be34ebe70aa00b026",
-    "research/redshift/__init__.py": "066943f990cb9820bd461a12627e243539b1b753",
+    "research/redshift/__init__.py": "4e3290a56c8428c0fcb4c74c892cf94b0a8ab7ec",
     "research/redshift/benchmarks.py": "d6b916b569660f7a029bc3c2a64de6d73537512b",
-    "research/redshift/model.py": "3a927e8eb3959ec6cc731d3d22e099ba26619102",
+    "research/redshift/model.py": "a6cbd00c516846bac89367dde43c234028497320",
     "research/redshift/fitting.py": "2e215d1e9d5a72bd8ac1ffe1057d795b8aa914f0",
     "research/redshift/README.md": "5025724800cc1f4776e59d7a80e7a0f287ead910",
     "research/redshift/MATHEMATICAL_SPECIFICATION.md": "780e53e45c6025ca57a5aa0c35f39f1046627c71",
     "tests/test_redshift.py": "97c6b7034acd7976c7454350652f08755fefa8b7",
-    "research/redshift/BENCHMARK_FIT_REPORT.md": "76551cb62549f98f0e3dc1f1d3fc25aaa4e34f2d"
+    "research/redshift/BENCHMARK_FIT_REPORT.md": "76551cb62549f98f0e3dc1f1d3fc25aaa4e34f2d",
+    "research/tik0/local_state.py": "f5af55c0b3f09a5e06ad1717c8f7c2300b48104e",
+    "research/tik0/LOCAL_STATE_BRIDGE.md": "ad8db5989870e61accece73335fefab311b0af85",
+    "tests/test_tik0_local_state.py": "d356ebd81826192871d5d286fe9a9009be4a6809"
   }
 }
