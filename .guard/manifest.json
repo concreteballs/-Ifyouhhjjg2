@@ -50,6 +50,12 @@
     "research/tik0/model.py": "d0b9c10a431337e4e20b848c61eb84326654ffad",
     "research/tik0/README.md": "3cf648535a0597c6439d6d387ce8e1724c474c31",
     "tests/test_tik0.py": "372c8fe9ce624942e6928c234ffb12adab368aaa",
-    "research/tik0/MATHEMATICAL_SPECIFICATION.md": "d62e1af5bc40f12c353e55f575c8adb53754aae5"
+    "research/tik0/MATHEMATICAL_SPECIFICATION.md": "d62e1af5bc40f12c353e55f575c8adb53754aae5",
+    "research/return_flow/__init__.py": "394a7c87caa713721d4931d81a9e34aefcea7b88",
+    "research/return_flow/model.py": "6962df34b129a85780e1abb8a365fa22545ad2f3",
+    "research/return_flow/fitting.py": "bc9c28df9d3fd720005f13e80399cf01fb4875d0",
+    "research/return_flow/README.md": "ceceb1816d65eab6b9446c3c6c4a5f1368b36f57",
+    "research/return_flow/MATHEMATICAL_SPECIFICATION.md": "bbdddc78c491c1c30fcd5a9f69d0a707ef69b15e",
+    "tests/test_return_flow.py": "cd8c0b49bd8a31b62800e47be34ebe70aa00b026"
   }
 }
