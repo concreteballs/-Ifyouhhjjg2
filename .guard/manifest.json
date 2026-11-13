@@ -71,6 +71,6 @@
     "research/redshift/independent_benchmarks.py": "653f4659ee1063cbe5c27414ff6b57b37352edfe",
     "research/redshift/tik_parameter_sweep.py": "c5ae4f6675eacefa0cb01750dba2d3d418dbb483",
     "tests/test_tik_parameter_sweep.py": "fb4b9b6f19c83142ff56632dc8bde6a0a36caf5d",
-    "research/redshift/TIK_PARAMETER_SWEEP_REPORT.md": "5a166f2fc3711a0f71058a5269cd02fe3c01af9c"
+    "research/redshift/TIK_PARAMETER_SWEEP_REPORT.md": "f1f9aa4ed7974bbd047e74755fc468ed9688a859"
   }
 }
