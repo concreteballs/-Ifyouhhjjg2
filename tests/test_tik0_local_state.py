@@ -11,14 +11,14 @@ from research.redshift import (
 D = Decimal
 
 
-def state(*, transmission="0.8", cell_count=2, coverage="0.5"):
+def state(*, transmission="0.8", cell_count=2, coverage="0.5", event_energy="3e-30"):
     return TIKLocalStateInputs(
         tik=ModelInputs(
             observation_volume_m3=D("10"),
             active_cell_count=cell_count,
             cell_volume_m3=D("2"),
             transmission_probability=D(transmission),
-            event_energy_j=D("3e-30"),
+            event_energy_j=None if event_energy is None else D(event_energy),
         ),
         return_channel_coverage_fraction=D(coverage),
         return_probability=D("0.5"),
@@ -57,15 +57,13 @@ class TIKLocalStateTests(unittest.TestCase):
             one.return_flow.returned_power_density_w_m3 * 2,
         )
 
-    def test_zero_or_missing_event_energy_is_rejected_for_bridge(self):
-        missing = state()
-        object.__setattr__(missing, "tik", ModelInputs(
-            observation_volume_m3=D("10"), active_cell_count=2,
-            cell_volume_m3=D("2"), transmission_probability=D("0.8"),
-            event_energy_j=None,
-        ))
+    def test_missing_event_energy_is_rejected_for_bridge(self):
         with self.assertRaises(ValueError):
-            calculate_local_state(missing)
+            calculate_local_state(state(event_energy=None))
+
+    def test_zero_event_energy_produces_zero_return_power(self):
+        result = calculate_local_state(state(event_energy="0"))
+        self.assertEqual(result.return_flow.returned_power_density_w_m3, D("0"))
 
     def test_invalid_return_channel_geometry_is_rejected(self):
         invalid = state(coverage="1.2")
