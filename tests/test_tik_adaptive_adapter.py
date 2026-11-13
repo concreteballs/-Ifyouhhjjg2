@@ -38,7 +38,7 @@ class TIKAdaptiveAdapterTests(unittest.TestCase):
             response_formulas=("linear", "power"),
         )
         self.assertEqual(result.observation_count, 3)
-        self.assertEqual(len(result.alternatives), 3)
+        self.assertEqual(len(result.alternatives), 5)
         self.assertIn(result.selected.return_model, ("linear", "power"))
         self.assertIn(result.selected.response.formula, ("linear", "power"))
         self.assertGreaterEqual(result.selected.response.weighted_rmse, 0.0)
