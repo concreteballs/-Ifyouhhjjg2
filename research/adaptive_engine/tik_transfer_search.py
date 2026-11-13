@@ -213,6 +213,10 @@ def search_tik_transfer_candidates(
     by_id = {item.pair.observation_id: item for item in data}
     if len(by_id) != len(data):
         raise ValueError("TIK observation IDs must be unique")
+    required_ids = set(research_result.fit_observation_ids) | set(research_result.holdout_observation_ids) | set(research_result.partial_transfer_observation_ids)
+    missing_ids = required_ids - set(by_id)
+    if missing_ids:
+        raise ValueError("research result references observations not supplied: " + ", ".join(sorted(missing_ids)))
     role_by_id = {role.observation_id: role for role in research_result.roles}
     partial = tuple(by_id[key] for key in research_result.partial_transfer_observation_ids
                     if key in by_id and role_by_id.get(key) is not None
@@ -239,7 +243,8 @@ def search_tik_transfer_candidates(
             continue
         fitted = raw.selected.fit
         holdout = _score_holdout(fitted, holdout_data)
-        score = (holdout.weighted_rmse if holdout is not None else fitted.selected.score)
+        score = (holdout.weighted_rmse + (1e6 if not fitted.selected.stability.passed else 0.0)
+                 if holdout is not None else fitted.selected.score)
         evaluations.append(TIKTransferEvaluation(candidate.candidate_id,
             candidate.proposal_ids, fitted, holdout, score))
     evaluations.sort(key=lambda item: (item.score, item.candidate_id))
