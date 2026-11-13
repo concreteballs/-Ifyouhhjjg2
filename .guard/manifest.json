@@ -57,13 +57,13 @@
     "research/return_flow/README.md": "ceceb1816d65eab6b9446c3c6c4a5f1368b36f57",
     "research/return_flow/MATHEMATICAL_SPECIFICATION.md": "bbdddc78c491c1c30fcd5a9f69d0a707ef69b15e",
     "tests/test_return_flow.py": "cd8c0b49bd8a31b62800e47be34ebe70aa00b026",
-    "research/redshift/__init__.py": "f83ffb9ddf12b797f87bfd1258366d75400fd7fe",
+    "research/redshift/__init__.py": "066943f990cb9820bd461a12627e243539b1b753",
     "research/redshift/benchmarks.py": "d6b916b569660f7a029bc3c2a64de6d73537512b",
-    "research/redshift/model.py": "3db24270b4d993c7988fc572ea6f35f68f370b2d",
+    "research/redshift/model.py": "3a927e8eb3959ec6cc731d3d22e099ba26619102",
     "research/redshift/fitting.py": "2e215d1e9d5a72bd8ac1ffe1057d795b8aa914f0",
-    "research/redshift/README.md": "fc593ff7798c43e42e7e7a767e3b0927a6baad40",
+    "research/redshift/README.md": "5025724800cc1f4776e59d7a80e7a0f287ead910",
     "research/redshift/MATHEMATICAL_SPECIFICATION.md": "780e53e45c6025ca57a5aa0c35f39f1046627c71",
-    "tests/test_redshift.py": "7b4486207fc8ef8e68d6136881612eecd0255e00",
+    "tests/test_redshift.py": "97c6b7034acd7976c7454350652f08755fefa8b7",
     "research/redshift/BENCHMARK_FIT_REPORT.md": "76551cb62549f98f0e3dc1f1d3fc25aaa4e34f2d"
   }
 }
