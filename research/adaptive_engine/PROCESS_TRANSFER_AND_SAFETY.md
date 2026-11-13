@@ -27,3 +27,9 @@ Example: a grasp skill learned on a soft overripe peach can contribute the grip 
 `CapabilityKnowledge` represents what a model has learned; it does not grant permission to execute. `authorize_execution` is a fail-closed policy decision requiring authenticated identity, explicitly authorized environment and scope, human/dual approval by risk tier, sandboxing for high-risk operations, and calibration plus emergency-stop interlocks for physical actuation. Certain harmful domains are categorically denied.
 
 This is a policy layer, not a security boundary by itself. Production use still requires an independently enforced authorization service, signed approvals, least-privilege actuator interfaces, immutable audit logs and hardware/software interlocks. A model must never be able to grant itself permissions or bypass the external controller.
+
+## Integrated TIK research loop
+
+`fit_tik_research_dataset` connects process applicability to the existing paired TIK adapter. Every record carries a TIK pair, a process profile and a provenance group. Classification happens first; only `FIT` observations are used to optimize. Partial analogues remain visible as component-transfer material. Independent `HOLDOUT` observations are evaluated afterward using the frozen selected configuration, with predictions and error metrics returned separately. Holdout data are never used to refit the selected parameters.
+
+Example: a paired TIK observation from a process that shares only a return-response component can be retained as `PARTIAL_TRANSFER`; it does not become a training sample or a direct holdout score merely because one feature overlaps.
