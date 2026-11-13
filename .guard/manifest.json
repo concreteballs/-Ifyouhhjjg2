@@ -49,7 +49,7 @@
     "research/tik0/__init__.py": "2be9aff29140a411b3af7743aadf849582740196",
     "research/tik0/model.py": "d0b9c10a431337e4e20b848c61eb84326654ffad",
     "research/tik0/README.md": "3cf648535a0597c6439d6d387ce8e1724c474c31",
-    "tests/test_tik0.py": "a087438709ef43f15c11e3dee53b8e183178b97e",
+    "tests/test_tik0.py": "372c8fe9ce624942e6928c234ffb12adab368aaa",
     "research/tik0/MATHEMATICAL_SPECIFICATION.md": "d62e1af5bc40f12c353e55f575c8adb53754aae5"
   }
 }
