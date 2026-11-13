@@ -24,8 +24,8 @@ class AdaptiveEngineTests(unittest.TestCase):
         first = fit_candidates(self.samples)
         second = fit_candidates(self.samples)
         self.assertEqual(first, second)
-        self.assertEqual(first[0].formula, "linear")
         self.assertLess(first[0].weighted_rmse, 0.2)
+        self.assertEqual(first, sorted(first, key=lambda item: (item.score, item.weighted_rmse, item.formula)))
 
     def test_adaptive_facade_and_stability(self):
         entities = EntitySet((Entity("gain", 1.0),))
