@@ -8,6 +8,7 @@ from .stability import StabilityReport, assess_stability
 from .tik_adapter import TIKAdaptiveCandidate, TIKAdaptiveResult, TIKPairObservation, fit_tik_pairs
 from .dynamic_adapter import DynamicTIKCandidate, DynamicTIKResult, TIKTimeObservation, fit_dynamic_tik_series
 from .raw_parameter_search import TIKRawParameterGrid, TIKRawSearchCandidate, TIKRawSearchResult, fit_tik_raw_parameters
+from .tik_research_pipeline import (TIKResearchObservation, TIKHoldoutPrediction, TIKHoldoutReport, TIKResearchResult, fit_tik_research_dataset)
 
 __all__ = [
     "Entity", "EntitySet", "AdaptiveResult", "run_adaptive", "FORMULAS",
@@ -17,7 +18,8 @@ __all__ = [
     "fit_tik_pairs", "DynamicTIKCandidate", "DynamicTIKResult",
     "TIKTimeObservation", "fit_dynamic_tik_series",
     "TIKRawParameterGrid", "TIKRawSearchCandidate", "TIKRawSearchResult",
-    "fit_tik_raw_parameters",
+    "fit_tik_raw_parameters", "TIKResearchObservation", "TIKHoldoutPrediction",
+    "TIKHoldoutReport", "TIKResearchResult", "fit_tik_research_dataset",
     "Applicability", "AxisAssessment", "AxisStatus", "CalibrationPoint",
     "CalibrationProfile", "DatasetObservation", "DatasetRole", "ObservationRole",
     "ProcessAssessment", "ProcessProfile", "TaskCluster", "TaskDefinition",
