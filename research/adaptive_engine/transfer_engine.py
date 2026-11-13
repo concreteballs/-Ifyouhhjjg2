@@ -211,7 +211,9 @@ def build_applicability_split(reference: ProcessProfile, observations: Iterable[
         elif assessment.applicability == Applicability.PARTIAL:
             role = DatasetRole.PARTIAL_TRANSFER
         elif assessment.applicability == Applicability.CONDITIONAL:
-            role = DatasetRole.ADAPTATION_REQUIRED
+            role = (DatasetRole.FIT if item.group_id in fit else
+                    DatasetRole.UNRESOLVED if item.group_id in holdout else
+                    DatasetRole.ADAPTATION_REQUIRED)
         elif item.group_id in fit:
             role = DatasetRole.FIT
         elif item.group_id in holdout and assessment.independent is True:
