@@ -201,9 +201,23 @@ def build_applicability_split(reference: ProcessProfile, observations: Iterable[
         raise ValueError("fit and holdout groups must be disjoint")
     if len({x.observation_id for x in data}) != len(data):
         raise ValueError("observation IDs must be unique")
+    def lineage(profile):
+        return (set(profile.lineage_ids)
+                | {value for value in (profile.source_id, profile.experiment_id) if value})
+
+    # Compare every holdout against the provenance of the entire fit population,
+    # not merely against the single reference profile.
+    fit_lineage = lineage(reference)
+    for item in data:
+        if item.group_id in fit:
+            fit_lineage.update(lineage(item.profile))
+
     result = []
     for item in data:
         assessment = assess_process_transfer(reference, item.profile, model_family=model_family)
+        candidate_lineage = lineage(item.profile)
+        independent_of_fit = (bool(fit_lineage) and bool(candidate_lineage)
+                              and not bool(fit_lineage & candidate_lineage))
         if assessment.applicability == Applicability.INCOMPATIBLE:
             role = DatasetRole.EXCLUDED
         elif assessment.applicability == Applicability.UNKNOWN:
@@ -216,7 +230,7 @@ def build_applicability_split(reference: ProcessProfile, observations: Iterable[
                     DatasetRole.ADAPTATION_REQUIRED)
         elif item.group_id in fit:
             role = DatasetRole.FIT
-        elif item.group_id in holdout and assessment.independent is True:
+        elif item.group_id in holdout and independent_of_fit:
             role = DatasetRole.HOLDOUT
         elif assessment.applicability == Applicability.CONDITIONAL:
             role = DatasetRole.ADAPTATION_REQUIRED
