@@ -39,6 +39,6 @@ print(result.selected.stability)
 
 ## Boundaries and next work
 
-The adapter searches return-model family, return coefficient/exponent, and downstream response family/parameters over supplied paired observations. Raw TIK geometry, event energy, transmission probability and return-channel inputs remain supplied rather than automatically changed. The next layer should add bounded search over explicitly selected raw inputs, temporal state fitting, train/validation splits and richer formula composition.
+The paired adapter searches return-model family, return coefficient/exponent, and downstream response family/parameters over supplied paired observations. A temporal adapter also fits time-ordered TIK local states, return response parameters, initial state and relaxation time constant. Raw TIK geometry, event energy, transmission probability and return-channel inputs remain supplied rather than automatically changed. The next layer should add bounded search over explicitly selected raw inputs, multi-state memory/hysteresis, train/validation splits and richer formula composition.
 
 A fitted result is a candidate configuration, not a guarantee of generalization. The returned alternatives and stability report must be retained.
