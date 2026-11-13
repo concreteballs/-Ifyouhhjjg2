@@ -45,12 +45,13 @@ class ProcessProfile:
     source_id: str = ""
     experiment_id: str = ""
     lineage_ids: tuple[str, ...] = ()
+    required_components: tuple[str, ...] = ()
 
     def __post_init__(self):
         if not self.profile_id.strip() or not self.process_family.strip():
             raise ValueError("profile_id and process_family are required")
         for name in ("structural", "functional", "conditions", "regimes",
-                     "capabilities", "lineage_ids"):
+                     "capabilities", "lineage_ids", "required_components"):
             values = getattr(self, name)
             if len(values) != len(set(values)):
                 raise ValueError(name + " must not contain duplicates")
@@ -69,7 +70,7 @@ class AxisAssessment:
     status: AxisStatus
     shared: tuple[str, ...] = ()
     source_only: tuple[str, ...] = ()
-    target_only: tuple[str, ...] = ""
+    target_only: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -144,12 +145,16 @@ def assess_process_transfer(source: ProcessProfile, target: ProcessProfile,
     right = set(target.lineage_ids) | {v for v in (target.source_id, target.experiment_id) if v}
     independent = (not bool(left & right)) if left and right else None
     # Both named capabilities and functional primitives can transfer independently.
-    transferable = tuple(sorted((set(source.capabilities) & set(target.capabilities))
+    target_needs = set(target.required_components or target.capabilities)
+    transferable = tuple(sorted((set(source.capabilities) & target_needs)
                                 | (set(source.functional) & set(target.functional))))
     mismatch = any(a.status == AxisStatus.MISMATCH for a in axes)
     unknown = any(a.status == AxisStatus.UNKNOWN for a in axes)
     reasons = []
-    if mismatch:
+    if unknown and not transferable:
+        result = Applicability.UNKNOWN
+        reasons.append("Missing profile data prevents a reliable classification.")
+    elif mismatch:
         result = Applicability.PARTIAL if transferable else Applicability.INCOMPATIBLE
         reasons.append("At least one axis differs; only explicitly shared components are transferable.")
     elif unknown:
@@ -211,6 +216,8 @@ def build_applicability_split(reference: ProcessProfile, observations: Iterable[
             role = DatasetRole.FIT
         elif item.group_id in holdout and assessment.independent is True:
             role = DatasetRole.HOLDOUT
+        elif assessment.applicability == Applicability.CONDITIONAL:
+            role = DatasetRole.ADAPTATION_REQUIRED
         else:
             role = DatasetRole.UNRESOLVED
         result.append(ObservationRole(item.observation_id, item.group_id, role, assessment))
