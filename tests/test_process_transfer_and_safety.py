@@ -24,13 +24,17 @@ class AnalogyTests(unittest.TestCase):
         self.assertEqual(result.transferable_components, ("energy", "trajectory_control"))
 
     def test_transfer_is_directional_and_reversible_by_reassessment(self):
-        a = profile("a", "glider", ("energy",))
-        b = profile("b", "powered", ("attitude_recovery",))
+        a = ProcessProfile("a", "glider", ("vehicle",), ("trajectory_control",),
+            ("airborne",), ("normal",), (("speed", "m/s"),), (("path", "m"),),
+            (("speed", 0.0, 100.0),), ("energy", "attitude_recovery"))
+        b = ProcessProfile("b", "powered", ("vehicle",), ("trajectory_control",),
+            ("airborne",), ("normal",), (("speed", "m/s"),), (("path", "m"),),
+            (("speed", 0.0, 100.0),), ("aerobatic_control",), required_components=("energy",))
         ab = assess_process_transfer(a, b)
         ba = assess_process_transfer(b, a)
         self.assertEqual(ab.source_id, "a")
         self.assertEqual(ba.source_id, "b")
-        self.assertEqual(ab.transferable_components, ba.transferable_components)
+        self.assertNotEqual(ab.transferable_components, ba.transferable_components)
 
     def test_unknown_profile_is_not_promoted(self):
         sparse = ProcessProfile("sparse", "unknown")
@@ -48,7 +52,7 @@ class AnalogyTests(unittest.TestCase):
         ), fit_group_ids=("train",), holdout_group_ids=("test1", "test2"),
            model_family="m")
         self.assertEqual([x.role for x in roles],
-            [DatasetRole.ADAPTATION_REQUIRED, DatasetRole.ADAPTATION_REQUIRED, DatasetRole.HOLDOUT])
+            [DatasetRole.FIT, DatasetRole.UNRESOLVED, DatasetRole.HOLDOUT])
 
     def test_partial_analogue_is_transfer_only(self):
         ref = profile("ref", capabilities=("grip",))
