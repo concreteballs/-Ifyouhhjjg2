@@ -60,9 +60,10 @@
     "research/redshift/__init__.py": "f83ffb9ddf12b797f87bfd1258366d75400fd7fe",
     "research/redshift/benchmarks.py": "d6b916b569660f7a029bc3c2a64de6d73537512b",
     "research/redshift/model.py": "3db24270b4d993c7988fc572ea6f35f68f370b2d",
-    "research/redshift/fitting.py": "457d9f90894c686906c832c6008b0affab7a9986",
+    "research/redshift/fitting.py": "2e215d1e9d5a72bd8ac1ffe1057d795b8aa914f0",
     "research/redshift/README.md": "fc593ff7798c43e42e7e7a767e3b0927a6baad40",
     "research/redshift/MATHEMATICAL_SPECIFICATION.md": "780e53e45c6025ca57a5aa0c35f39f1046627c71",
-    "tests/test_redshift.py": "71d0241ebe67e13e80b232715d39699f11f7d576"
+    "tests/test_redshift.py": "7b4486207fc8ef8e68d6136881612eecd0255e00",
+    "research/redshift/BENCHMARK_FIT_REPORT.md": "76551cb62549f98f0e3dc1f1d3fc25aaa4e34f2d"
   }
 }
