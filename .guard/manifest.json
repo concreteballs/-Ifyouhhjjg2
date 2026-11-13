@@ -78,11 +78,11 @@
     "research/adaptive_engine/stability.py": "62b47ede329eddc02b0a10f6c3f5ffe04f3553f6",
     "research/adaptive_engine/registry.py": "bfbc5bea22bb56a764a1bacdbb7f9ee1018e6625",
     "research/adaptive_engine/engine.py": "29efff0267858e3eaf2ef4650e01fb2f5fe5e8f7",
-    "research/adaptive_engine/__init__.py": "125afdb5a4e63b131f0b8da9c6269884f2c225c8",
+    "research/adaptive_engine/__init__.py": "34a9bfb4ceb1234e9d86612850570ba7da223872",
     "tests/test_adaptive_engine.py": "747a8e1857fab8bb320e25d3cff6ccf8da12b85f",
-    "research/adaptive_engine/README.md": "b5c95ebf5379ff4d714aa11ef2620f41c7189952",
+    "research/adaptive_engine/README.md": "1a40179ea5a4d3efb31ab0e849ebcc8fd4181141",
     "research/adaptive_engine/tik_adapter.py": "d9b844cf14596375296026f426c1bf5bce223ddf",
-    "research/adaptive_engine/TIK_ADAPTER.md": "4e371d5f3dd7201b3deb330d598b9236546d9f3c",
+    "research/adaptive_engine/TIK_ADAPTER.md": "7c33ded50b81c2fca4dd48e7a67b9093a8e8173f",
     "tests/test_tik_adaptive_adapter.py": "2eeb788996aa3de6199f43a92a71fce4f1368bfc",
     "research/adaptive_engine/dynamic_adapter.py": "31c9238dbd3173b743f7d40e83e8dae57f005f9f",
     "research/adaptive_engine/DYNAMIC_TIK.md": "e70799aab1440e1647971de482d48e1aa70510f6",
@@ -93,6 +93,9 @@
     "research/adaptive_engine/transfer_engine.py": "013385351af4d1cd8b56487339e68526aa089949",
     "research/adaptive_engine/safety_gate.py": "2d08181915c1e1bb71e941c0d5ada3605dbc6615",
     "tests/test_process_transfer_and_safety.py": "fb17357ef1ef787eefbfec7915070848bb8332bb",
-    "research/adaptive_engine/PROCESS_TRANSFER_AND_SAFETY.md": "063150e3f608da90b6269f8ff0d380f7f0dbf18c"
+    "research/adaptive_engine/PROCESS_TRANSFER_AND_SAFETY.md": "9143886f2986373a34bf3ea0a578bf6b97073e94",
+    "research/adaptive_engine/tik_research_pipeline.py": "b649aa0d5c5332f8d8ceee257ce4e7ed838e8a63",
+    "tests/test_tik_research_pipeline.py": "57a486806581e916de8712fe785e614c62641b04",
+    "research/adaptive_engine/TIK_RESEARCH_PIPELINE.md": "950b0bc3bc7ada5a88a801dcd3ba18e2885983b1"
   }
 }
