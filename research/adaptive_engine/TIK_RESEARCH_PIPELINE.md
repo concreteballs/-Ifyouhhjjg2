@@ -41,3 +41,24 @@ The caller supplies a reference profile and explicit fit/holdout group IDs.
 - Holdout observations never enter `fit_tik_pairs`.
 
 This pipeline does not yet automatically synthesize new TIK input parameters from partial analogues. It establishes the safe orchestration boundary and preserves the partial-transfer material for a subsequent component-level adaptation/search layer.
+
+## Component transfer and candidate recombination
+
+The component transfer search consumes only observations already classified as
+`PARTIAL_TRANSFER`. A caller must declare explicit mapping rules; no implicit
+parameter copying occurs. Each rule maps one shared capability to a raw TIK
+parameter and may define multiple multiplier/offset transformations. Hints
+from different analogue processes are merged by target parameter and side,
+then expanded into deterministic, deduplicated candidate combinations under
+a hard candidate-count limit.
+
+The search runs each combination through the raw-parameter fitter using only
+the original `FIT` observation IDs. It does not refit on `HOLDOUT`; it evaluates
+the frozen candidate and ranks candidates by holdout weighted RMSE when an
+independent holdout exists. Without holdout data, ranking falls back to the
+fit score and is explicitly exploratory. Proposal IDs and source observation
+IDs remain attached for traceability.
+
+A transfer rule is a hypothesis about which component can help, not proof that
+the transferred value is correct. Invalid candidates are counted as rejected.
+The original process-role split remains authoritative.
