@@ -3,7 +3,7 @@
   "baseline_from_commit": "37ed31b6865fc1ea42babd9a86e773ac3ec4c59a",
   "hash_algorithm": "git-blob-sha1",
   "files": {
-    ".github/workflows/spectral-core-tests.yml": "861d3fe6fcd9846326dfe5c503e1e1197966d6ba",
+    ".github/workflows/spectral-core-tests.yml": "4fcf7a50933679b3ac6fcf923cfb48c4b4070cb0",
     "LICENSE": "49eff4b53583966a7d34172f69b500b50bcf23da",
     "PROVENANCE.md": "1aa074499385426f07178a316a79f71003a84389",
     "README.md": "f551c6adf412726674e4f7f26f5b739cd7e56acb",
