@@ -42,6 +42,8 @@ class RedshiftModelTests(unittest.TestCase):
         self.assertTrue(fits)
         self.assertTrue(all(item.sufficiency == "UNDERDETERMINED" for item in fits))
         self.assertTrue(all(item.input_kind == "reference_potential_shift" for item in fits))
+        self.assertEqual(fits[0].model_name, "linear")
+        self.assertEqual(fits[0].parameters["coefficient"], 1.064)
 
     def test_invalid_uncertainty_and_mixed_inputs_are_rejected(self):
         with self.assertRaises(ValueError):
