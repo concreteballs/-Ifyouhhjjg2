@@ -21,18 +21,20 @@ class Candidate:
     score: float
     sample_count: int
 
-def _grids(formula: str, scale: float):
-    g = (0.25, 0.5, 1.0, 2.0, 4.0)
-    offsets = (-0.25, 0.0, 0.25)
+def _grids(formula: str, input_scale: float, output_scale: float):
+    multipliers = (0.25, 0.5, 1.0, 2.0, 4.0, 8.0)
+    gains = tuple(v * output_scale / input_scale for v in multipliers)
+    offsets = tuple(v * output_scale for v in (-0.1, -0.05, 0.0, 0.05, 0.1))
+    caps = tuple(v * output_scale for v in multipliers)
     if formula == "linear":
-        return (("gain", tuple(v / scale for v in g)), ("offset", offsets))
+        return (("gain", gains), ("offset", offsets))
     if formula == "power":
-        return (("gain", tuple(v / scale for v in g)), ("exponent", (0.5, 0.75, 1.0, 1.25, 1.5, 2.0)), ("offset", offsets))
+        return (("gain", gains), ("exponent", (0.5, 0.75, 1.0, 1.25, 1.5, 2.0)), ("offset", offsets))
     if formula == "saturating":
-        return (("cap", tuple(v for v in g)), ("rate", (0.05, 0.1, 0.25, 0.5, 1.0, 2.0)), ("offset", offsets))
+        return (("cap", caps), ("rate", (0.05, 0.1, 0.25, 0.5, 1.0, 2.0)), ("offset", offsets))
     if formula == "quadratic":
-        return (("linear", tuple(v / scale for v in g)), ("quadratic", (-2/scale**2, -1/scale**2, 0.0, 1/scale**2, 2/scale**2)), ("offset", offsets))
-    return (("gain", tuple(v / scale for v in g)), ("cap", (0.25, 0.5, 1.0, 2.0, 4.0)), ("rate", (0.05, 0.1, 0.25, 0.5, 1.0)), ("offset", offsets))
+        return (("linear", gains), ("quadratic", tuple(v * output_scale / input_scale**2 for v in (-2, -1, 0, 1, 2))), ("offset", offsets))
+    return (("gain", gains), ("cap", caps), ("rate", (0.05, 0.1, 0.25, 0.5, 1.0)), ("offset", offsets))
 
 def _rmse(data, formula, params):
     total = sum(s.weight * (predict(formula, s.x, params) - s.y) ** 2 for s in data)
@@ -53,9 +55,10 @@ def fit_candidates(samples: Iterable[Sample], *, formulas: tuple[str, ...] = FOR
         if not all(isfinite(v) for v in (s.x, s.y, s.weight)) or s.weight <= 0:
             raise ValueError("sample values must be finite and weight positive")
     scale = max(max(abs(s.x) for s in data), 1e-12)
+    output_scale = max(max(abs(s.y) for s in data), 1e-12)
     candidates = []
     for formula in formulas:
-        dimensions = _grids(formula, scale)
+        dimensions = _grids(formula, scale, output_scale)
         grids = [d[1] for d in dimensions]
         best_params, best_score = None, float("inf")
         # Coarse grid followed by deterministic local refinement around the best point.
