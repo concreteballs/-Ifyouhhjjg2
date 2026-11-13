@@ -41,4 +41,3 @@ The caller supplies a reference profile and explicit fit/holdout group IDs.
 - Holdout observations never enter `fit_tik_pairs`.
 
 This pipeline does not yet automatically synthesize new TIK input parameters from partial analogues. It establishes the safe orchestration boundary and preserves the partial-transfer material for a subsequent component-level adaptation/search layer.
-
