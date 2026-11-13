@@ -69,8 +69,9 @@ class TransferFeedbackTests(unittest.TestCase):
         self.assertEqual(report.holdout_observation_ids, ("hold",))
         self.assertEqual(report.partial_transfer_observation_ids, ("partial",))
         self.assertEqual(len(report.evaluations), len(search.evaluations))
-        for row, evaluated in zip(report.evaluations, search.evaluations):
-            self.assertEqual(row.candidate_id, evaluated.candidate_id)
+        evaluated_by_id = {item.candidate_id: item for item in search.evaluations}
+        for row in report.evaluations:
+            evaluated = evaluated_by_id[row.candidate_id]
             self.assertEqual(row.holdout_count, 1)
             self.assertAlmostEqual(
                 row.holdout_improvement,
@@ -80,7 +81,9 @@ class TransferFeedbackTests(unittest.TestCase):
     def test_unstable_candidates_are_never_marked_as_success(self):
         baseline, search, report = self.run_feedback()
         # The report reflects the candidate's actual stability result.
-        for row, evaluated in zip(report.evaluations, search.evaluations):
+        evaluated_by_id = {item.candidate_id: item for item in search.evaluations}
+        for row in report.evaluations:
+            evaluated = evaluated_by_id[row.candidate_id]
             self.assertEqual(row.stable, evaluated.fit.selected.stability.passed)
             if not row.stable:
                 self.assertEqual(row.outcome, "unstable")
