@@ -83,9 +83,9 @@ def predict_from_return_flow_states(
     )
     flow_b = calculate_return_flow(
         location_b, model_name=return_model_name,
-        coefficient=__import__("decimal").Decimal(str(return_coefficient)),
-        exponent=__import__("decimal").Decimal(str(return_exponent)),
-        maximum_fraction=__import__("decimal").Decimal(str(return_maximum_fraction)),
+        coefficient=Decimal(str(return_coefficient)),
+        exponent=Decimal(str(return_exponent)),
+        maximum_fraction=Decimal(str(return_maximum_fraction)),
     )
     delta = float(flow_a.returned_power_density_w_m3 - flow_b.returned_power_density_w_m3)
     prediction = predict_from_return_flow_contrast(
