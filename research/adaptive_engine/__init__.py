@@ -9,6 +9,9 @@ from .tik_adapter import TIKAdaptiveCandidate, TIKAdaptiveResult, TIKPairObserva
 from .dynamic_adapter import DynamicTIKCandidate, DynamicTIKResult, TIKTimeObservation, fit_dynamic_tik_series
 from .raw_parameter_search import TIKRawParameterGrid, TIKRawSearchCandidate, TIKRawSearchResult, fit_tik_raw_parameters
 from .tik_research_pipeline import (TIKResearchObservation, TIKHoldoutPrediction, TIKHoldoutReport, TIKResearchResult, fit_tik_research_dataset)
+from .tik_transfer_search import (TIKTransferRule, TIKComponentHint, TIKTransferCandidate,
+    TIKTransferEvaluation, TIKTransferSearchResult, propose_tik_component_hints,
+    combine_tik_transfer_hints, search_tik_transfer_candidates)
 
 __all__ = [
     "Entity", "EntitySet", "AdaptiveResult", "run_adaptive", "FORMULAS",
@@ -20,6 +23,10 @@ __all__ = [
     "TIKRawParameterGrid", "TIKRawSearchCandidate", "TIKRawSearchResult",
     "fit_tik_raw_parameters", "TIKResearchObservation", "TIKHoldoutPrediction",
     "TIKHoldoutReport", "TIKResearchResult", "fit_tik_research_dataset",
+    "TIKTransferRule", "TIKComponentHint", "TIKTransferCandidate",
+    "TIKTransferEvaluation", "TIKTransferSearchResult",
+    "propose_tik_component_hints", "combine_tik_transfer_hints",
+    "search_tik_transfer_candidates",
     "Applicability", "AxisAssessment", "AxisStatus", "CalibrationPoint",
     "CalibrationProfile", "DatasetObservation", "DatasetRole", "ObservationRole",
     "ProcessAssessment", "ProcessProfile", "TaskCluster", "TaskDefinition",
