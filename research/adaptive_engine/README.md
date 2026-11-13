@@ -59,3 +59,16 @@ Partial observations remain proposal sources only, never fitting rows or
 holdout evidence. Candidate provenance retains the contributing proposal IDs.
 
 See [TIK_COMPONENT_TRANSFER_SEARCH.md](TIK_COMPONENT_TRANSFER_SEARCH.md).
+
+
+## TIK transfer feedback and experiment history
+
+`build_transfer_feedback` compares each frozen transferred candidate with the
+original baseline on the same FIT and independent HOLDOUT sets. It records
+score improvements, stability, component names and proposal lineage. Without
+HOLDOUT, outcomes remain explicitly unverified. The append-only
+`TransferFeedbackRegistry` exports/imports versioned JSON history and
+component outcome statistics; duplicate experiment IDs are rejected.
+
+Feedback never refits on HOLDOUT or promotes partial-transfer observations into
+training. See [TIK_TRANSFER_FEEDBACK.md](TIK_TRANSFER_FEEDBACK.md).
