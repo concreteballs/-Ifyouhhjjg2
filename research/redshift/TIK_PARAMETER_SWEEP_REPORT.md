@@ -56,6 +56,26 @@ The implementation now varies the two locations independently in:
 
 The returned-power contrast is calculated after running the complete TIK-0 and return-flow calculation at both locations.
 
+
+### One-at-a-time two-location perturbation
+
+Baseline point A uses (V=1\,\mathrm{m^3}), (N=5), (v_c=0.1\,\mathrm{m^3}), (p=0.25), event energy (10^{-147}\,\mathrm{J}), return coverage 0.75, return probability 0.8, and return efficiency 0.9. Its calculated returned power density is approximately (7.4135\times10^{-2}\,\mathrm{W/m^3}).
+
+Point B changes one parameter at a time. The table reports (x=(\Pi_{r,A}-\Pi_{r,B})/\Pi_{r,A}).
+
+| Parameter changed at B | B returned power density (W/m³) | Normalized contrast x |
+|---|---:|---:|
+| Active-cell count 5 → 10 | 2.9654e−1 | −3.0000 |
+| Cell volume ×1.5 | 1.6680e−1 | −1.2500 |
+| Observation volume ×1.5 | 3.2949e−2 | +0.5556 |
+| Transmission probability ×1.5 | 1.6680e−1 | −1.2500 |
+| Event energy ×2 | 2.9654e−1 | −3.0000 |
+| Return-channel coverage ×1.2 | 8.8962e−2 | −0.2000 |
+| Return probability ×1.2 | 8.8962e−2 | −0.2000 |
+| Return efficiency ×1.1 | 8.1549e−2 | −0.1000 |
+
+This is a sensitivity map of the current equations, not evidence that these parameters actually vary between clock locations. It also shows why independent local measurements matter: several different parameter changes can produce the same normalized contrast.
+
 ## Identifiability findings
 
 Several parameters cannot be recovered from clock redshift data alone under the current normalized model:
