@@ -7,6 +7,7 @@ from .registry import ModelRecord, ModelRegistry
 from .stability import StabilityReport, assess_stability
 from .tik_adapter import TIKAdaptiveCandidate, TIKAdaptiveResult, TIKPairObservation, fit_tik_pairs
 from .dynamic_adapter import DynamicTIKCandidate, DynamicTIKResult, TIKTimeObservation, fit_dynamic_tik_series
+from .raw_parameter_search import TIKRawParameterGrid, TIKRawSearchCandidate, TIKRawSearchResult, fit_tik_raw_parameters
 
 __all__ = [
     "Entity", "EntitySet", "AdaptiveResult", "run_adaptive", "FORMULAS",
@@ -15,4 +16,6 @@ __all__ = [
     "TIKAdaptiveCandidate", "TIKAdaptiveResult", "TIKPairObservation",
     "fit_tik_pairs", "DynamicTIKCandidate", "DynamicTIKResult",
     "TIKTimeObservation", "fit_dynamic_tik_series",
+    "TIKRawParameterGrid", "TIKRawSearchCandidate", "TIKRawSearchResult",
+    "fit_tik_raw_parameters",
 ]

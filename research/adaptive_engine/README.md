@@ -9,36 +9,16 @@ The Adaptive Engine is the control and search layer above TIK-0, return-flow and
 - Deterministic coarse parameter search with local refinement and input/output scale-aware grids.
 - Weighted fitting, perturbation-aware ranking and local stability checks.
 - JSON registry for reproducible candidate configurations.
-- End-to-end paired TIK integration: calculates both local states using the canonical TIK-0 and return-flow modules, then jointly searches return-curve and downstream response choices.
+- End-to-end paired TIK integration using canonical TIK-0 and return-flow calculations.
+- Temporal TIK fitting for return response, initial state and relaxation time.
+- Bounded raw-input search over explicitly selected geometry, transmission, event-energy and return-channel fields.
 
-## End-to-end TIK use
+## Bounded raw-input search
 
-```python
-from decimal import Decimal as D
-from research.tik0 import ModelInputs, TIKLocalStateInputs
-from research.adaptive_engine import TIKPairObservation, fit_tik_pairs
+Each tunable field is scoped to one observation ID and one pair side (`state_a` or `state_b`). This avoids silently overwriting independent measurements. Search dimensions and total combinations are capped; invalid geometries are skipped and counted. The selected candidate and all valid alternatives are returned in deterministic score order.
 
-def state(probability):
-    return TIKLocalStateInputs(
-        tik=ModelInputs(D("10"), 2, D("2"), D(str(probability)), D("1e-120")),
-        return_channel_coverage_fraction=D("0.75"),
-        return_probability=D("0.8"),
-        return_efficiency=D("0.9"),
-        return_reference_power_density_w_m3=D("1e-10"),
-    )
+See [RAW_TIK_SEARCH.md](RAW_TIK_SEARCH.md) for supported fields and usage.
 
-pairs = (
-    TIKPairObservation("p1", state(0.9), state(0.8), 0.1),
-    TIKPairObservation("p2", state(0.8), state(0.6), 0.2),
-)
-result = fit_tik_pairs(pairs)
-print(result.selected.return_model, result.selected.return_coefficient)
-print(result.selected.response.formula, result.selected.response.parameters)
-print(result.selected.stability)
-```
+## Operating principles
 
-## Boundaries and next work
-
-The paired adapter searches return-model family, return coefficient/exponent, and downstream response family/parameters over supplied paired observations. A temporal adapter also fits time-ordered TIK local states, return response parameters, initial state and relaxation time constant. Raw TIK geometry, event energy, transmission probability and return-channel inputs remain supplied rather than automatically changed. The next layer should add bounded search over explicitly selected raw inputs, multi-state memory/hysteresis, train/validation splits and richer formula composition.
-
-A fitted result is a candidate configuration, not a guarantee of generalization. The returned alternatives and stability report must be retained.
+The target is practical stability and useful behavior under changed inputs. A fitted configuration is not assumed to be uniquely identified or generally applicable. Keep alternatives, use holdout observations, and test sensitivity before promoting a configuration.
