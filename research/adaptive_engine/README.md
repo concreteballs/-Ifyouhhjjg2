@@ -22,3 +22,14 @@ See [RAW_TIK_SEARCH.md](RAW_TIK_SEARCH.md) for supported fields and usage.
 ## Operating principles
 
 The target is practical stability and useful behavior under changed inputs. A fitted configuration is not assumed to be uniquely identified or generally applicable. Keep alternatives, use holdout observations, and test sensitivity before promoting a configuration.
+
+## Process analogy, task transfer and safety
+
+- Directional process profiles compare structure, function, conditions, regimes, I/O schemas, ranges and provenance axis by axis.
+- Partial analogues transfer named shared components; reverse transfer is assessed separately.
+- Tasks can be decomposed into operations, clustered by reusable primitives and composed into new transfer plans.
+- Holdout assignment is group-aware and requires independent lineage. Partial analogues are marked as transfer-only; unknowns remain unresolved.
+- Reference-based calibration reports residuals and valid operating range.
+- Learned capability is separate from execution permission. Risk-based approval, authorized scope, sandboxing and physical interlocks are checked by a fail-closed policy gate.
+
+See [PROCESS_TRANSFER_AND_SAFETY.md](PROCESS_TRANSFER_AND_SAFETY.md).
