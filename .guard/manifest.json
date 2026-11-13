@@ -71,6 +71,15 @@
     "research/redshift/independent_benchmarks.py": "653f4659ee1063cbe5c27414ff6b57b37352edfe",
     "research/redshift/tik_parameter_sweep.py": "c5ae4f6675eacefa0cb01750dba2d3d418dbb483",
     "tests/test_tik_parameter_sweep.py": "fb4b9b6f19c83142ff56632dc8bde6a0a36caf5d",
-    "research/redshift/TIK_PARAMETER_SWEEP_REPORT.md": "f1f9aa4ed7974bbd047e74755fc468ed9688a859"
+    "research/redshift/TIK_PARAMETER_SWEEP_REPORT.md": "f1f9aa4ed7974bbd047e74755fc468ed9688a859",
+    "research/adaptive_engine/entities.py": "ab023ac765268c8b2204c2eee0a22d6c8e34772b",
+    "research/adaptive_engine/formulas.py": "76ed2dccf52be0d9455711e7b33a9b01e1fe0590",
+    "research/adaptive_engine/optimizer.py": "8e5bdddb3e44f310a74c0a1940e841b5a814ba9b",
+    "research/adaptive_engine/stability.py": "62b47ede329eddc02b0a10f6c3f5ffe04f3553f6",
+    "research/adaptive_engine/registry.py": "bfbc5bea22bb56a764a1bacdbb7f9ee1018e6625",
+    "research/adaptive_engine/engine.py": "29efff0267858e3eaf2ef4650e01fb2f5fe5e8f7",
+    "research/adaptive_engine/__init__.py": "354a4a490b2b0f505c4c7e38679a7c2381705024",
+    "tests/test_adaptive_engine.py": "84269652f89609ac8efb3b33ae2a30c9bfa16a81",
+    "research/adaptive_engine/README.md": "a38f044cd3d2c17cdac5e16a69fce2f936359770"
   }
 }
