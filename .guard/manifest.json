@@ -57,7 +57,7 @@
     "research/return_flow/README.md": "ceceb1816d65eab6b9446c3c6c4a5f1368b36f57",
     "research/return_flow/MATHEMATICAL_SPECIFICATION.md": "bbdddc78c491c1c30fcd5a9f69d0a707ef69b15e",
     "tests/test_return_flow.py": "cd8c0b49bd8a31b62800e47be34ebe70aa00b026",
-    "research/redshift/__init__.py": "6159697f132f1e527248b37a14e3b79b71620288",
+    "research/redshift/__init__.py": "3f8ef9d8806657b928cc08d340fe32f507e38109",
     "research/redshift/benchmarks.py": "d6b916b569660f7a029bc3c2a64de6d73537512b",
     "research/redshift/model.py": "b3f286219c8c75224ce8ffda4cb81426e8434b08",
     "research/redshift/fitting.py": "2e215d1e9d5a72bd8ac1ffe1057d795b8aa914f0",
