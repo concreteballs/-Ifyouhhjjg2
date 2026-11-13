@@ -67,6 +67,6 @@
     "research/redshift/BENCHMARK_FIT_REPORT.md": "76551cb62549f98f0e3dc1f1d3fc25aaa4e34f2d",
     "research/tik0/local_state.py": "f5af55c0b3f09a5e06ad1717c8f7c2300b48104e",
     "research/tik0/LOCAL_STATE_BRIDGE.md": "ad8db5989870e61accece73335fefab311b0af85",
-    "tests/test_tik0_local_state.py": "d356ebd81826192871d5d286fe9a9009be4a6809"
+    "tests/test_tik0_local_state.py": "1d490f47410b1c0e9f39523d85aff6c95360f799"
   }
 }
