@@ -54,6 +54,19 @@ class AnalogyTests(unittest.TestCase):
         self.assertEqual([x.role for x in roles],
             [DatasetRole.FIT, DatasetRole.UNRESOLVED, DatasetRole.HOLDOUT])
 
+
+    def test_holdout_is_checked_against_all_fit_lineage_not_only_reference(self):
+        reference = profile("reference", source="source-A", experiment="run-A")
+        second_fit = profile("second-fit", source="source-B", experiment="run-B")
+        leaked_holdout = profile("holdout", source="source-B", experiment="run-C")
+        roles = build_applicability_split(reference, (
+            DatasetObservation("fit-a", "train-a", reference),
+            DatasetObservation("fit-b", "train-b", second_fit),
+            DatasetObservation("hold-b", "test-b", leaked_holdout),
+        ), fit_group_ids=("train-a", "train-b"), holdout_group_ids=("test-b",),
+           model_family="m")
+        self.assertEqual(roles[2].role, DatasetRole.UNRESOLVED)
+
     def test_partial_analogue_is_transfer_only(self):
         ref = profile("ref", capabilities=("grip",))
         other = ProcessProfile("other", "different", ("robot",), ("grasp",),
