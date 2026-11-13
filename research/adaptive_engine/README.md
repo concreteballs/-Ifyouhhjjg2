@@ -46,3 +46,16 @@ See [PROCESS_TRANSFER_AND_SAFETY.md](PROCESS_TRANSFER_AND_SAFETY.md).
 Fit and holdout groups are explicitly supplied. Provenance shared with any training observation prevents holdout promotion. A dataset with fewer than two eligible fit observations is rejected rather than silently broadening the training set.
 
 See [TIK_RESEARCH_PIPELINE.md](TIK_RESEARCH_PIPELINE.md).
+
+## Component-level transfer search
+
+Partial analogues can now produce explicit, auditable parameter hints through
+`TIKTransferRule`. A rule names the reusable component, source and target raw
+parameter, source/target pair side, and candidate multiplier/offset transforms.
+Hints from multiple analogues are combined deterministically into bounded
+candidate grids. Each candidate is optimized using only the pipeline's FIT
+observations; the frozen fit is then scored on its independent HOLDOUT set.
+Partial observations remain proposal sources only, never fitting rows or
+holdout evidence. Candidate provenance retains the contributing proposal IDs.
+
+See [TIK_COMPONENT_TRANSFER_SEARCH.md](TIK_COMPONENT_TRANSFER_SEARCH.md).
