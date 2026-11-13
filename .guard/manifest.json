@@ -57,7 +57,7 @@
     "research/return_flow/README.md": "ceceb1816d65eab6b9446c3c6c4a5f1368b36f57",
     "research/return_flow/MATHEMATICAL_SPECIFICATION.md": "bbdddc78c491c1c30fcd5a9f69d0a707ef69b15e",
     "tests/test_return_flow.py": "cd8c0b49bd8a31b62800e47be34ebe70aa00b026",
-    "research/redshift/__init__.py": "4e3290a56c8428c0fcb4c74c892cf94b0a8ab7ec",
+    "research/redshift/__init__.py": "6159697f132f1e527248b37a14e3b79b71620288",
     "research/redshift/benchmarks.py": "d6b916b569660f7a029bc3c2a64de6d73537512b",
     "research/redshift/model.py": "b3f286219c8c75224ce8ffda4cb81426e8434b08",
     "research/redshift/fitting.py": "2e215d1e9d5a72bd8ac1ffe1057d795b8aa914f0",
@@ -67,6 +67,10 @@
     "research/redshift/BENCHMARK_FIT_REPORT.md": "76551cb62549f98f0e3dc1f1d3fc25aaa4e34f2d",
     "research/tik0/local_state.py": "f5af55c0b3f09a5e06ad1717c8f7c2300b48104e",
     "research/tik0/LOCAL_STATE_BRIDGE.md": "ad8db5989870e61accece73335fefab311b0af85",
-    "tests/test_tik0_local_state.py": "1d490f47410b1c0e9f39523d85aff6c95360f799"
+    "tests/test_tik0_local_state.py": "1d490f47410b1c0e9f39523d85aff6c95360f799",
+    "research/redshift/independent_benchmarks.py": "653f4659ee1063cbe5c27414ff6b57b37352edfe",
+    "research/redshift/tik_parameter_sweep.py": "c5ae4f6675eacefa0cb01750dba2d3d418dbb483",
+    "tests/test_tik_parameter_sweep.py": "fb4b9b6f19c83142ff56632dc8bde6a0a36caf5d",
+    "research/redshift/TIK_PARAMETER_SWEEP_REPORT.md": "5a166f2fc3711a0f71058a5269cd02fe3c01af9c"
   }
 }
