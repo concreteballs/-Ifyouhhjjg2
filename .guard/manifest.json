@@ -78,17 +78,17 @@
     "research/adaptive_engine/stability.py": "62b47ede329eddc02b0a10f6c3f5ffe04f3553f6",
     "research/adaptive_engine/registry.py": "bfbc5bea22bb56a764a1bacdbb7f9ee1018e6625",
     "research/adaptive_engine/engine.py": "29efff0267858e3eaf2ef4650e01fb2f5fe5e8f7",
-    "research/adaptive_engine/__init__.py": "495a3543a789165bff0f5d146e0337978db22b93",
+    "research/adaptive_engine/__init__.py": "4a25b7708c54057d86e6afdb299b2bde87ca9614",
     "tests/test_adaptive_engine.py": "747a8e1857fab8bb320e25d3cff6ccf8da12b85f",
-    "research/adaptive_engine/README.md": "6cd5de912eefea3115284e88550b5f68acf68d5d",
+    "research/adaptive_engine/README.md": "88075af495f13f6ca9170300eaf93a017460bb7e",
     "research/adaptive_engine/tik_adapter.py": "d9b844cf14596375296026f426c1bf5bce223ddf",
     "research/adaptive_engine/TIK_ADAPTER.md": "4e371d5f3dd7201b3deb330d598b9236546d9f3c",
     "tests/test_tik_adaptive_adapter.py": "2eeb788996aa3de6199f43a92a71fce4f1368bfc",
     "research/adaptive_engine/dynamic_adapter.py": "31c9238dbd3173b743f7d40e83e8dae57f005f9f",
     "research/adaptive_engine/DYNAMIC_TIK.md": "e70799aab1440e1647971de482d48e1aa70510f6",
     "tests/test_dynamic_tik_adapter.py": "9cbe0bfa4de57d45ac3091a5bc6d4b72f3899441",
-    "research/adaptive_engine/raw_parameter_search.py": "fad7de651b099e2b217a58c2b2ad82325638957e",
-    "tests/test_tik_raw_parameter_search.py": "01ab43ecb409f1eb2cac89aa360dea2b904da925",
-    "research/adaptive_engine/RAW_TIK_SEARCH.md": "a42dcc3b7dc6e30e455dfeb19d554e0ebd115b1a"
+    "research/adaptive_engine/raw_parameter_search.py": "44a248ef2420c70fac747a9bf10a88c9a1895677",
+    "tests/test_tik_raw_parameter_search.py": "92174d2e7ea064561029369f2d61ae394fe06510",
+    "research/adaptive_engine/RAW_TIK_SEARCH.md": "9daf3f3cd91b2e4745cf5441cc2dad48e54416a4"
   }
 }
