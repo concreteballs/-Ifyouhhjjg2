@@ -3,7 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from decimal import Decimal
 from math import isfinite
-from research.return_flow.model import ReturnFlowInputs, calculate_return_flow\nfrom research.tik0.local_state import TIKLocalStateInputs, calculate_local_state
+from research.return_flow.model import ReturnFlowInputs, calculate_return_flow
+from research.tik0.local_state import TIKLocalStateInputs, calculate_local_state
 
 @dataclass(frozen=True)
 class RedshiftObservation:
