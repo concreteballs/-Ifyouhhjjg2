@@ -2,7 +2,7 @@ name: Spectral Core Guard and tests
 
 on:
   push:
-    branches: [main]
+    branches: [main, research/tik0-prototype]
   pull_request:
   workflow_dispatch:
 
@@ -26,6 +26,6 @@ jobs:
       - name: Validate protected repository baseline
         run: python tools/verify_guard.py
       - name: Compile Python sources
-        run: python -m compileall -q spectral_core spectral_monitor tests tools
+        run: python -m compileall -q spectral_core spectral_monitor research tests tools
       - name: Run complete test suite
         run: python -m unittest discover -s tests -v
