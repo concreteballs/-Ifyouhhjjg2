@@ -2,7 +2,7 @@ name: Spectral Core Guard and tests
 
 on:
   push:
-    branches: [main]
+    branches: [main, research/tik0-prototype]
   pull_request:
   workflow_dispatch:
 
