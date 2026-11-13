@@ -20,3 +20,11 @@ The selected result includes both the return-flow settings and downstream respon
 - It does not yet automatically optimize the raw geometric TIK inputs (cell count, cell volume, observation volume, transmission probability, event energy, channel coverage, probability and efficiency). Those remain supplied inputs; adding constrained search over selected inputs is the next extension.
 - It searches declared formula families, not arbitrary symbolic expressions.
 - The output is a fitted configuration for the supplied observations. Use separate datasets or perturbation tests to assess generalization.
+
+## Applicability-aware dataset orchestration
+
+The higher-level `fit_tik_research_dataset` wrapper accepts `TIKResearchObservation` records that pair each existing `TIKPairObservation` with a process profile and provenance group.
+
+It calls the process applicability engine before fitting. Only `FIT` records reach `fit_tik_pairs`. `PARTIAL_TRANSFER` records are retained and reported separately. `HOLDOUT` records are evaluated only after fitting, using the selected return-flow settings and response formula with frozen parameters; holdout values are never sent back into the optimizer.
+
+The result includes the fitted model, all applicability roles, holdout predictions and errors, and explicit ID lists for fit, holdout, partial transfer, adaptation, excluded and unresolved observations.
