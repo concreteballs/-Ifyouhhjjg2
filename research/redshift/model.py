@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from decimal import Decimal
 from math import isfinite
-from research.return_flow.model import ReturnFlowInputs, calculate_return_flow
+from research.return_flow.model import ReturnFlowInputs, calculate_return_flow\nfrom research.tik0.local_state import TIKLocalStateInputs, calculate_local_state
 
 @dataclass(frozen=True)
 class RedshiftObservation:
@@ -97,4 +97,104 @@ def predict_from_return_flow_states(
         prediction.input_kind,
         "tik0_return_flow_" + return_model_name,
         prediction.parameter_status,
+    )
+
+
+def _local_return_density(
+    state: TIKLocalStateInputs,
+    *,
+    return_model_name: str,
+    return_coefficient: float,
+    return_exponent: float,
+    return_maximum_fraction: float,
+) -> float:
+    result = calculate_local_state(
+        state,
+        return_model_name=return_model_name,
+        return_coefficient=Decimal(str(return_coefficient)),
+        return_exponent=Decimal(str(return_exponent)),
+        return_maximum_fraction=Decimal(str(return_maximum_fraction)),
+    )
+    return float(result.return_flow.returned_power_density_w_m3)
+
+
+def predict_from_tik0_local_states(
+    location_a: TIKLocalStateInputs,
+    location_b: TIKLocalStateInputs,
+    *,
+    redshift_reference_power_density_w_m3: float,
+    return_model_name: str = "linear",
+    return_coefficient: float = 1.0,
+    return_exponent: float = 1.0,
+    return_maximum_fraction: float = 1.0,
+    redshift_coefficient: float = 1.0,
+    redshift_exponent: float = 1.0,
+) -> RedshiftPrediction:
+    """End-to-end TIK-0 -> return-flow -> fractional clock-shift prediction."""
+    returned_a = _local_return_density(
+        location_a, return_model_name=return_model_name,
+        return_coefficient=return_coefficient, return_exponent=return_exponent,
+        return_maximum_fraction=return_maximum_fraction,
+    )
+    returned_b = _local_return_density(
+        location_b, return_model_name=return_model_name,
+        return_coefficient=return_coefficient, return_exponent=return_exponent,
+        return_maximum_fraction=return_maximum_fraction,
+    )
+    result = predict_from_return_flow_contrast(
+        returned_a - returned_b, redshift_reference_power_density_w_m3,
+        coefficient=redshift_coefficient, exponent=redshift_exponent,
+    )
+    return RedshiftPrediction(
+        result.fractional_shift, "tik0_local_state_contrast",
+        "tik0_local_state_" + return_model_name, result.parameter_status,
+    )
+
+
+def redshift_observation_from_tik0_states(
+    name: str,
+    location_a: TIKLocalStateInputs,
+    location_b: TIKLocalStateInputs,
+    *,
+    observed_fractional_shift: float,
+    sigma: float,
+    redshift_reference_power_density_w_m3: float,
+    return_model_name: str = "linear",
+    return_coefficient: float = 1.0,
+    return_exponent: float = 1.0,
+    return_maximum_fraction: float = 1.0,
+    source: str = "",
+    source_url: str = "",
+    source_doi: str = "",
+    notes: str = "",
+) -> RedshiftObservation:
+    """Create a fit observation only when both local TIK states are specified.
+
+    The x value is the dimensionless returned-power-density contrast. It is
+    intentionally not the gravitational-potential control variable.
+    """
+    if redshift_reference_power_density_w_m3 <= 0:
+        raise ValueError("redshift_reference_power_density_w_m3 must be positive")
+    if sigma <= 0:
+        raise ValueError("sigma must be positive")
+    returned_a = _local_return_density(
+        location_a, return_model_name=return_model_name,
+        return_coefficient=return_coefficient, return_exponent=return_exponent,
+        return_maximum_fraction=return_maximum_fraction,
+    )
+    returned_b = _local_return_density(
+        location_b, return_model_name=return_model_name,
+        return_coefficient=return_coefficient, return_exponent=return_exponent,
+        return_maximum_fraction=return_maximum_fraction,
+    )
+    return RedshiftObservation(
+        name=name,
+        x=(returned_a - returned_b) / redshift_reference_power_density_w_m3,
+        y=observed_fractional_shift,
+        sigma=sigma,
+        input_kind="tik0_local_state_contrast",
+        source=source,
+        source_url=source_url,
+        source_doi=source_doi,
+        notes=notes or "TIK-0 local-state contrast; not a reference-potential input.",
     )
