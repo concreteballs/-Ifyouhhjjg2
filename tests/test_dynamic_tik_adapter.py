@@ -11,7 +11,7 @@ def state(probability):
         return_channel_coverage_fraction=D("0.75"),
         return_probability=D("0.8"),
         return_efficiency=D("0.9"),
-        return_reference_power_density_w_m3=D("1e-10"),
+        return_reference_power_density_w_m3=D("1e27"),
     )
 
 
